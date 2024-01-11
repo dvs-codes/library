@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+div.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgb(154, 156, 154);
+    border-radius: 5px;
+}
+
+button.add {
+    background-color: white;
+    font-size: 30px;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+
+}
+
+button.add:hover {
+    background-color: rgb(237, 232, 232);
+}
+
+button.add:active {
+    background-color: rgb(213, 210, 210);
+    font-size: 28px;
+}
+
+div.books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    background-color: rgb(237, 232, 232);
+    border-radius: 5px;
+}
