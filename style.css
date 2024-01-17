@@ -10,6 +10,7 @@ div.header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5px;
     padding: 40px;
     font-size: 50px;
     font-weight: bold;
@@ -48,4 +49,9 @@ div.books {
     height: 200px;
     background-color: rgb(237, 232, 232);
     border-radius: 5px;
+}
+
+.book-details-form {
+    width: 500px;
+    height: 300px;
 }
