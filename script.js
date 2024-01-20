@@ -45,7 +45,7 @@ function addBookToLibrary() {
         //main card
         let infoCard = document.createElement('div')
         infoCard.classList.add(`card`)
-        infoCard.classList.add(`${myLibrary.length}`)
+        infoCard.classList.add(`${myLibrary.indexOf(book)}`)
         booksDisplay.appendChild(infoCard)
     
         //author title line
@@ -76,14 +76,23 @@ function addBookToLibrary() {
         bookStatusCard.addEventListener('click', () => {
             book.changeReadStatus()
             bookStatusCard.innerText = `${book.readStatus}`
-            console.log(myLibrary)
         })
 
         //remove button to remove specific card
         let removeButton = document.createElement('button')
         removeButton.classList.add('remove')
+        removeButton.classList.add(`${myLibrary.indexOf(book)}`)
         removeButton.innerText = 'remove'
         infoCard.appendChild(removeButton)
+
+        // remove button removes the specific card
+        removeButton.addEventListener('click', ()=> {
+            console.log(removeButton.className)
+            let currentIndex = myLibrary.indexOf(book)
+            myLibrary.splice(currentIndex,1)
+            booksDisplay.removeChild(booksDisplay.children[currentIndex])
+            console.log(myLibrary)
+        })
 })
 }
 
