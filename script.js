@@ -14,21 +14,21 @@ addButton.addEventListener("click", () => {
     bookDialog.showModal()
 })
 
+class Book {
+    constructor(author, title, pages, readStatus) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    } 
 
-//object construct that builds a book
-function Book(author, title, pages, readStatus) {
-    this.author = author,
-    this.title = title,
-    this.pages = pages,
-    this.readStatus = readStatus;
-}
-
-Book.prototype.changeReadStatus = function() {
-     if (this.readStatus === 'read') {
-        this.readStatus = 'not read'
-     } else  {
-        this.readStatus = 'read'
-     }
+    changeReadStatus() {
+        if (this.readStatus === 'read') {
+            this.readStatus = 'not read'
+         } else  {
+            this.readStatus = 'read'
+         }
+    }
 }
 
 function addBookToLibrary() {
