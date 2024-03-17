@@ -1,5 +1,6 @@
 let myLibrary =[]
 const mainBody = document.querySelector('body')
+const bookDetailForm = document.querySelector('.book-details-form')
 const formAuthor = document.querySelector("#author") 
 const formTitle = document.querySelector('#title')
 const formPages = document.querySelector('#number_of_pages')
@@ -36,11 +37,8 @@ function addBookToLibrary() {
     const newBook =new Book(formAuthor.value, formTitle.value, 
     formPages.value, formStatus.value);
     myLibrary.push(newBook)
-    console.log(newBook)
-
 
     myLibrary.forEach((book) => {
-        console.log("works")
         // creates a card from the info gathered in myLibrary array
         //main card
         let infoCard = document.createElement('div')
@@ -96,20 +94,24 @@ function addBookToLibrary() {
 })
 }
 
-confirmButton.addEventListener('click', (event) => {
+confirmButton.onclick = (event) => {
+
+    //checks if fields have values or not if they do prevent default prevents form submission
+    if(formAuthor.value && formTitle.value && formPages.value) {
+        event.preventDefault()
+        booksDisplay.textContent =""
+        addBookToLibrary()
+        document.querySelector(".book-details-form").reset()
+        bookDialog.close()
+    }
+}
+
+
+cancelButton.onclick = (event)=> {
     event.preventDefault()
-
-    //refreshes and deletes already created book card so the loop 
-    //can go through each of them again.
-    myLibrary.forEach(() =>{
-        booksDisplay.removeChild(booksDisplay.firstElementChild)
-    })
-
-    addBookToLibrary()
-    document.querySelector(".book-details-form").reset()
     bookDialog.close()
-    console.log(myLibrary)
-})
+    bookDetailForm.reset()
+}
 
 
 
